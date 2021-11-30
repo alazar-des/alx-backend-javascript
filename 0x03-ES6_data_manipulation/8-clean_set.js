@@ -1,10 +1,10 @@
 export default function cleanSet(set, startString) {
-  const newSet = new Set();
+  let newStr = '';
   for (const str of set) {
-    if (str.startsWith(startString)) {
-      newSet.add(str.slice(startString.length));
+    if (str.startsWith(startString) && startString !== '') {
+      if (newStr === '') { newStr = str.slice(startString.length); } else { newStr = `${newStr}-${str.slice(startString.length)}`; }
     }
   }
 
-  return Array.from(newSet).join('-');
+  return newStr;
 }
