@@ -46,20 +46,13 @@ const app = http.createServer((req, res) => {
   if (url === '/students') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    if (path) {
-      countStudents(path)
-        .then((data) => {
-          res.write('This is the list of our students\n');
-          for (let i = 0; i < data.length - 1; i += 1) {
-            res.write(`${data[i]}\n`);
-          }
-          res.write(`${data[data.length - 1]}`);
-          res.end();
-        })
-        .catch((error) => {
-          res.end(error);
-        });
-    } else { res.end(); }
+    countStudents(path)
+      .then((data) => {
+        res.end(`This is the list of our students\n${data.join('\n')}`);
+      })
+      .catch((error) => {
+        res.end(error);
+      });
   }
 });
 
