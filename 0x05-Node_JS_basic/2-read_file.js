@@ -19,7 +19,7 @@ function countStudents(path) {
       const names = result.map((name) => name[0]).join(', ');
       console.log(`Number of students in ${uniqueFields[i]}: ${result.length}. List: ${names}`);
     }
-  } catch {
+  } catch (e) {
     throw new Error('Cannot load the database');
   }
 }
