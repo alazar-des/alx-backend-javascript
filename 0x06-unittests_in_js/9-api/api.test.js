@@ -24,7 +24,7 @@ describe('AGI', function () {
     });
     it('should return a body Welcome to the payment system', function () {
       request.get('http://localhost:7865/cart/12', function (error, response, body) {
-        expect(body).to.be.equal('Payment methods for cart :12');
+        expect(body).to.be.equal('Payment methods for cart 12');
       });
     });
     it('should return status code of 404', function () {

@@ -11,7 +11,7 @@ app.get('/cart/:id', function (req, res) {
   if (isNaN(req.params.id)) {
     res.sendStatus(404);
   } else {
-    res.send(`Payment methods for cart :${req.params.id}`);
+    res.send(`Payment methods for cart ${req.params.id}`);
   }
 });
 
