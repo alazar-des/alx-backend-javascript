@@ -1,6 +1,7 @@
 const readDatabase = require('../utils');
 
-const path = 'database.csv';
+const path = process.argv.slice(2)[0];
+console.log(path);
 
 class StudentsController {
   static getAllStudents(request, response) {
